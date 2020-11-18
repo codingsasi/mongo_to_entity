@@ -66,6 +66,7 @@ TODO
 2. Rollback for migrations.
 3. Code comments.
 4. Validations and prvent empty entity creation.
+5. Add menu link from location entity page to map entity to mongo db table.
 
 RESOURCES
 ---------

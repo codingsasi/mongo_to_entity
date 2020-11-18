@@ -13,6 +13,6 @@
     "minimum-stability": "dev",
     "require": {
         "mongodb/mongodb": "^1.7",
-        "drupal/migrate_tools": "5.0"
+        "drupal/migrate_tools": "^5.0"
     }
 }

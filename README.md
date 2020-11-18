@@ -11,7 +11,8 @@ INTRODUCTION
 ------------
 
 This module allows to import data from mongodb to Drupal entity. An entity is defined "Location" with bundle "City".
-Mongo DB holds the list of cities in the following format: 
+Mongo DB holds the list of cities in the following format:
+```json
 [
   {
     "_id": "01001",
@@ -34,6 +35,7 @@ Mongo DB holds the list of cities in the following format:
     "state": "LA"
   },
 ]
+```
 After connecting the database in the interface provided, simply run the drush command "drush migrate-import --all"
 You can write your own migrations by simply extending the sources and/or destination plugins defined in this module.
 

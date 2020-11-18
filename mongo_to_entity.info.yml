@@ -1,0 +1,7 @@
+name: 'Mongo to Entity'
+type: module
+description: 'A Drupal 8/9 module to migrate tables from MongoDb to Drupal Entities.'
+core_version_requirement: ^8 || ^9
+package: 'Custom'
+dependencies:
+  - migrate

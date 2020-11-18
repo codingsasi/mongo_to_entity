@@ -1,0 +1,17 @@
+{
+    "name": "mongo_to_entity/mongo_to_entity",
+    "description": "A simple webform popup for lead generation and other marketing needs.",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Abhai Sasidharan",
+            "homepage": "https://www.drupal.org/u/abhaisasidharan",
+            "role": "Maintainer"
+        }
+    ],
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "mongodb/mongodb": "^1.7"
+    }
+}

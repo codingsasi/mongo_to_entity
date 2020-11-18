@@ -62,7 +62,7 @@ HOW TO USE
 
 TODO
 -----
-1. Extend the import functionality to other entities and bundles.
+1. Extend the import functionality to other entities and bundles (Although hopefull it should already work - untested).
 2. Rollback for migrations.
 3. Code comments.
 4. Validations and prvent empty entity creation.

@@ -65,6 +65,8 @@ TODO
 1. Extend the import functionality to other entities and bundles.
 2. Rollback for migrations.
 3. Code comments.
+4. Validations and prvent empty entity creation.
+5. Add menu link from location entity page to map entity to mongo db table.
 
 RESOURCES
 ---------
@@ -74,6 +76,7 @@ RESOURCES
 4. https://api.drupal.org/api/drupal/core!modules!migrate!src!Plugin!migrate!source!EmbeddedDataSource.php/class/EmbeddedDataSource
 5. https://drupal.stackexchange.com/questions/208570/how-do-i-write-a-custom-migrate-destination-plugin-in-for-a-node-type
 6. https://www.drupal.org/project/drupal/issues/2925052
+7. https://www.php.net/manual/en/mongodb-driver-cursor.toarray.php
 
 MISC
 ----

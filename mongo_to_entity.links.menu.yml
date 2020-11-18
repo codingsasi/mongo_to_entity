@@ -15,3 +15,12 @@ entity.location_type.collection:
   description: 'List Location type (bundles)'
   parent: system.admin_structure
   weight: 99
+  
+
+mongo_to_entity.mongo_db_credentials_form:
+  title: 'Mongo Db credentials'
+  route_name: mongo_to_entity.mongo_db_credentials_form
+  description: 'Credentials for mongo db connection.'
+  parent: system.admin_config_system
+  weight: 99
+

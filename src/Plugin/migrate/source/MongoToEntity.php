@@ -51,7 +51,8 @@ class MongoToEntity extends SourcePluginBase {
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, MigrationInterface $migration) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $migration);
-    $db_string = 'mongodb://10.0.2.2:27017/Cities';
+    $db = \Drupal::config('mongo_to_entity.mongodbcredentials');
+    $db_string = 'mongodb://' . $db->get('database_host') . ':' . $db->get('port') . '/' . $db->get('database_name');
     $mongo = new \MongoDB\Driver\Manager($db_string);
 
     $filter = [];
@@ -63,11 +64,6 @@ class MongoToEntity extends SourcePluginBase {
     $cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
     $this->dataRows = $cursor->toArray();
     $this->ids = $configuration['ids'];
-//    $this->ids = [
-//      '_id' => [
-//        'type' => 'string',
-//      ],
-//    ];
   }
 
   /**

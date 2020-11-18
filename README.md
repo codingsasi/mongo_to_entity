@@ -4,32 +4,71 @@ CONTENTS OF THIS FILE
  * Introduction
  * Requirements
  * How to use
- * Conflicts/Known issues
+ * To Do
 
 
 INTRODUCTION
 ------------
 
-This module provides simple popup block like that of sumo.me.
-Sometimes we need to display popup blocks which interacts with the user.
-Example, Get a Quote, Newsletter subscription forms. Using this module,
-the user can and their webforms to a block which is a popup and style it as well.
-
-After this, the user can specify when to display the popup to the user.
-Example, 5 seconds after the user is on the page, when the user scrolls to 50% of page and so on.
-
-The user can also add custom styles to the block.
-
+This module allows to import data from mongodb to Drupal entity. An entity is defined "Location" with bundle "City".
+Mongo DB holds the list of cities in the following format: 
+[
+  {
+    "_id": "01001",
+    "city": "AGAWAM",
+    "loc": [
+      -72.622738999999995713,
+      42.07020599999999888
+    ],
+    "pop": 15338,
+    "state": "MA"
+  },
+  {
+    "_id": "01002",
+    "city": "ASFA",
+    "loc": [
+      -72.622738999999995713,
+      99.07099999999888
+    ],
+    "pop": 234234,
+    "state": "LA"
+  },
+]
+After connecting the database in the interface provided, simply run the drush command "drush migrate-import --all"
+You can write your own migrations by simply extending the sources and/or destination plugins defined in this module.
 
 REQUIREMENTS
 ------------
-Webform module. Currently, only webforms can be embedded in the popup blocks.
-After creating the webform, you will have to select the webform from the block configuration page.
+Drupal 8 or 9
+Migrate and Migrate Tools module.
+The PHP MongoDb driver must be installed on your server.
 
-`IMPORTANT: Make sure you add category "dopup" to your webform, otherwise it won't show up in teh block config form.`
+For ubuntu: 
+`sudo apt install php-pear`
+`sudo pecl install mongodb`
 
+For fedora and other redhar systems:
+`sudo yum install php-pear` or `sudo dnf install php-pear`
+`sudo pecl install mongodb`
 
-CONFLICTS/KNOWN ISSUES
-----------------------
-Theoretically, you can add multiple blocks to the same page, but I haven't
-tested this feature. For now, stick to one popup per page.
+HOW TO USE
+----------
+1. Enable the module.
+2. In the mongo db credentials form (/admin/config/mongo_to_entity/mongodbcredentials), enter your mongo db host, port and database name
+3. In the Entity Map form (/admin/config/mongo_to_entity/mongotoentitymap/location/city), map the entity fields to the mongodb database tables. Only the mapped fields will be imported, rest will ignored.
+4. Run the drush command.
+
+TODO
+-----
+1. Extend the import functionality to other entities and bundles.
+2. Rollback for migrations.
+3. Code comments.
+
+RESOURCES
+---------
+1. https://docs.mongodb.com/drivers/php
+2. https://www.drupal.org/docs/8/api/migrate-api/migrate-destination-plugins-examples/migrating-nodes
+3. https://www.drupal.org/docs/drupal-apis/migrate-api/executing-migrations
+4. https://api.drupal.org/api/drupal/core!modules!migrate!src!Plugin!migrate!source!EmbeddedDataSource.php/class/EmbeddedDataSource
+5. https://drupal.stackexchange.com/questions/208570/how-do-i-write-a-custom-migrate-destination-plugin-in-for-a-node-type
+6. https://www.drupal.org/project/drupal/issues/2925052

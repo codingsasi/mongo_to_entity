@@ -63,17 +63,6 @@ class MongoDBCredentialsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-   $db_string = 'mongodb://10.0.2.2:27017/Cities';
-    $mongo = new \MongoDB\Driver\Manager($db_string);
-
-    $filter = [];
-    $options = [];
-
-    // Query mongo database
-    $query = new \MongoDB\Driver\Query($filter, $options);
-    $cursor = $mongo->executeQuery('Cities.cities', $query);
-    $cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
-    $rows = $cursor->toArray();
     $disabled = FALSE;
     if (!extension_loaded('mongodb')) { 
       $this->messenger()->addError("PHP Mongodb extension is not loaded.");
@@ -85,7 +74,7 @@ class MongoDBCredentialsForm extends ConfigFormBase {
       '#title' => $this->t('Database Host'),
       '#maxlength' => 64,
       '#size' => 64,
-      '#default_value' => $config->get('database_host'),
+      '#default_value' => $config->get('database_host') ?? 'localhost',
       '#disabled' => $disabled,
     ];
     $form['port'] = [
@@ -94,7 +83,7 @@ class MongoDBCredentialsForm extends ConfigFormBase {
       '#maxlength' => 64,
       '#size' => 64,
       '#min' => 0,
-      '#default_value' => $config->get('port'),
+      '#default_value' => $config->get('port') ?? '27017',
       '#disabled' => $disabled,
     ];
     $form['database_name'] = [
@@ -105,6 +94,7 @@ class MongoDBCredentialsForm extends ConfigFormBase {
       '#default_value' => $config->get('database_name'),
       '#disabled' => $disabled,
     ];
+
     return parent::buildForm($form, $form_state);
   }
 

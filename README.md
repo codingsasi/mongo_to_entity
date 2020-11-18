@@ -74,6 +74,7 @@ RESOURCES
 4. https://api.drupal.org/api/drupal/core!modules!migrate!src!Plugin!migrate!source!EmbeddedDataSource.php/class/EmbeddedDataSource
 5. https://drupal.stackexchange.com/questions/208570/how-do-i-write-a-custom-migrate-destination-plugin-in-for-a-node-type
 6. https://www.drupal.org/project/drupal/issues/2925052
+7. https://www.php.net/manual/en/mongodb-driver-cursor.toarray.php
 
 MISC
 ----

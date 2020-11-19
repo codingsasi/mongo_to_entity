@@ -77,7 +77,3 @@ RESOURCES
 5. https://drupal.stackexchange.com/questions/208570/how-do-i-write-a-custom-migrate-destination-plugin-in-for-a-node-type
 6. https://www.drupal.org/project/drupal/issues/2925052
 7. https://www.php.net/manual/en/mongodb-driver-cursor.toarray.php
-
-MISC
-----
-I have used drupal console extensively to generate module code, entity code and migration source and destination plugins. 
